@@ -12,7 +12,7 @@ public class Main {
 
         CalculadoraDeDesconto calculadoraDeDesconto = new CalculadoraDeDesconto();
 
-        Orcamento orcamento = new Orcamento(new BigDecimal("622"), 4);
+        Orcamento orcamento = new Orcamento(new BigDecimal("502"), 4);
 
         BigDecimal desconto = calculadoraDeDesconto.calcular(orcamento);
 
