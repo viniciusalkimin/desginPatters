@@ -18,5 +18,13 @@ public class Main {
 
         System.out.println(desconto);
 
+        orcamento.aplicarDescontoExtra();
+
+        System.out.println(orcamento.getValor());
+
+        orcamento.aprovar();
+        orcamento.aplicarDescontoExtra();
+        System.out.println(orcamento.getValor());
+
     }
 }
