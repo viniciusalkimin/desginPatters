@@ -2,8 +2,11 @@ package com.alkimin.vinicius;
 
 import com.alkimin.vinicius.pedido.GeradorDePedido;
 import com.alkimin.vinicius.pedido.GeradorDePedidoHandler;
+import com.alkimin.vinicius.pedido.acao.EnviarEmailPedido;
+import com.alkimin.vinicius.pedido.acao.SalvarPedidoNoBancoDeDados;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TestarGeradorDePedidos {
@@ -12,12 +15,17 @@ public class TestarGeradorDePedidos {
 
         Scanner sc = new Scanner(System.in);
 
-        String cliente = sc.nextLine();
-        BigDecimal valorOrcamento = BigDecimal.valueOf(sc.nextDouble());
-        int quantidade = sc.nextInt();
+        String cliente = "Fulano da Silva";
+        BigDecimal valorOrcamento = new BigDecimal("250");
+        int quantidade = Integer.parseInt("2");
 
         GeradorDePedido geradorDePedido = new GeradorDePedido(cliente, valorOrcamento, quantidade);
-        GeradorDePedidoHandler geradorDePedidoHandler = new GeradorDePedidoHandler();
+        GeradorDePedidoHandler geradorDePedidoHandler = new GeradorDePedidoHandler(
+                Arrays.asList(
+                        new EnviarEmailPedido(),
+                        new SalvarPedidoNoBancoDeDados()
+                )
+        );
 
         geradorDePedidoHandler.executar(geradorDePedido);
 
