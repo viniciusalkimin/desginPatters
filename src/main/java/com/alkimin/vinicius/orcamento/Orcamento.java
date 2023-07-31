@@ -2,6 +2,7 @@ package com.alkimin.vinicius.orcamento;
 
 import com.alkimin.vinicius.orcamento.estado.EmAnalise;
 import com.alkimin.vinicius.orcamento.estado.EstadoPedido;
+import com.alkimin.vinicius.orcamento.estado.Finalizado;
 import lombok.Data;
 import lombok.Getter;
 
@@ -39,5 +40,9 @@ public class Orcamento {
 
     public void finalizar() {
         this.estadoPedido.finalizar(this);
+    }
+
+    public boolean isFinalizado() {
+        return estadoPedido instanceof Finalizado;
     }
 }
