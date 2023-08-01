@@ -17,6 +17,9 @@ public class GeradorDePedidoHandler {
 
     public List<AcaoAposPedidoCriado> acaoAposPedidoCriadoList;
 
+    // Ao aplicar o padrão Command, acabamos aplicando o padrão FACADE no metodo executar()
+    // O metodo é onde concentra ações de várias outras classes e entrega uma abstração pro cliente
+
     public void executar(GeradorDePedido geradorDePedido) {
         ItemPedido itemPedido = new ItemPedido(new BigDecimal("500"));
         Orcamento orcamento = new Orcamento();

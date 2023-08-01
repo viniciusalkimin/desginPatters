@@ -3,6 +3,7 @@ package com.alkimin.vinicius;
 import com.alkimin.vinicius.pedido.GeradorDePedido;
 import com.alkimin.vinicius.pedido.GeradorDePedidoHandler;
 import com.alkimin.vinicius.pedido.acao.EnviarEmailPedido;
+import com.alkimin.vinicius.pedido.acao.LogDePedido;
 import com.alkimin.vinicius.pedido.acao.SalvarPedidoNoBancoDeDados;
 
 import java.math.BigDecimal;
@@ -23,7 +24,8 @@ public class TestarGeradorDePedidos {
         GeradorDePedidoHandler geradorDePedidoHandler = new GeradorDePedidoHandler(
                 Arrays.asList(
                         new EnviarEmailPedido(),
-                        new SalvarPedidoNoBancoDeDados()
+                        new SalvarPedidoNoBancoDeDados(),
+                        new LogDePedido()
                 )
         );
 
