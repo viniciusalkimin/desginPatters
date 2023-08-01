@@ -1,5 +1,6 @@
 package com.alkimin.vinicius.pedido;
 
+import com.alkimin.vinicius.orcamento.ItemPedido;
 import com.alkimin.vinicius.orcamento.Orcamento;
 import com.alkimin.vinicius.pedido.acao.AcaoAposPedidoCriado;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,9 @@ public class GeradorDePedidoHandler {
     public List<AcaoAposPedidoCriado> acaoAposPedidoCriadoList;
 
     public void executar(GeradorDePedido geradorDePedido) {
-        Orcamento orcamento = new Orcamento(new BigDecimal("500"), geradorDePedido.getQuantidadeItens());
+        ItemPedido itemPedido = new ItemPedido(new BigDecimal("500"));
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionarItem(itemPedido);
         Pedido pedido = new Pedido(geradorDePedido.getCliente(), LocalDateTime.now(), orcamento);
 
         acaoAposPedidoCriadoList.forEach(

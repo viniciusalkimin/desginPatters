@@ -20,6 +20,6 @@ public class DescontoOrcamentoComMaisDeCincoItens extends Desconto {
 
     @Override
     public boolean deveAplicar(Orcamento orcamento) {
-        return orcamento.getQuantidadeItens() > 5;
+        return orcamento.quantidadeItens() > 5;
     }
 }

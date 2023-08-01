@@ -1,7 +1,7 @@
 package com.alkimin.vinicius;
 
 import com.alkimin.vinicius.desconto.CalculadoraDeDesconto;
-import com.alkimin.vinicius.desconto.Desconto;
+import com.alkimin.vinicius.orcamento.ItemPedido;
 import com.alkimin.vinicius.orcamento.Orcamento;
 
 import java.math.BigDecimal;
@@ -12,7 +12,10 @@ public class Main {
 
         CalculadoraDeDesconto calculadoraDeDesconto = new CalculadoraDeDesconto();
 
-        Orcamento orcamento = new Orcamento(new BigDecimal("502"), 4);
+        ItemPedido itemPedido = new ItemPedido(new BigDecimal("200"));
+
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionarItem(itemPedido);
 
         BigDecimal desconto = calculadoraDeDesconto.calcular(orcamento);
 

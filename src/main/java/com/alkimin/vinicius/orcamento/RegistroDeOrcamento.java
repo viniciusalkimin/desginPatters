@@ -17,7 +17,7 @@ public class RegistroDeOrcamento {
         String url = "http://api.externa/orcamento";
         Map<String, Object> map = Map.of(
                 "valor", orcamento.getValor(),
-                "quantidade", orcamento.getQuantidadeItens()
+                "quantidade", orcamento.quantidadeItens()
         );
         httpAdapter.post(url, map);
     }
